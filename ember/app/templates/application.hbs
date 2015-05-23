@@ -1,6 +1,24 @@
-<h2 id="title">Welcome to Hubster</h2>
+{{#paper-nav-container classNames="ember-app"}}
 
-{{link-to 'Home' 'application'}}
-{{link-to 'About' 'about'}}
+  {{#paper-sidenav classNames="md-sidenav-left md-whiteframe-z2" flex-layout="column" flex=true}}
+    {{#paper-toolbar}}
+      <div class="md-toolbar-tools">
+        <h1 id="title">Hubster</h1>
+      </div>
+    {{/paper-toolbar}}
 
-{{outlet}}
+    {{#paper-content}}
+      <nav class="sidenav">
+        <ul>
+          <li>{{link-to 'Home' 'application'}}</li>
+          <li>{{link-to 'About' 'about'}}</li>
+        </ul>
+      </nav>
+    {{/paper-content}}
+  {{/paper-sidenav}}
+
+  {{#paper-content flex-layout="column" flex=true}}
+    {{outlet}}
+  {{/paper-content}}
+
+{{/paper-nav-container}}

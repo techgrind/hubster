@@ -17,10 +17,12 @@ module('Integration - Landing Page', {
 
 test('Should welcome me to Hubster', function(assert) {
   visit('/').then(function() {
-    assert.equal(find('h2#title').text(), 'Welcome to Hubster');
+    assert.equal(find('h2 span').text(), 'Welcome!');
   });
 });
 
+
+//This doesn't seem to do anything... fix later too late now
 test('Should allow navigating back to root from another page', function(assert) {
   visit('/about').then(function() {
     click('a:contains("Home")').then(function() {
