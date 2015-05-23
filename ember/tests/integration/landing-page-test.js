@@ -17,7 +17,7 @@ module('Integration - Landing Page', {
 
 test('Should welcome me to Hubster', function(assert) {
   visit('/').then(function() {
-    assert.equal(find('h2 span').text(), 'Welcome!');
+    assert.equal(find('h2 span').text(), 'What\'s Happening');
   });
 });
 

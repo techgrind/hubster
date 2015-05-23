@@ -10,6 +10,22 @@
   outline: none;
 }
 
+.logo {
+  background: url('/assets/images/logo.png');
+  background-size: 60px;
+  background-repeat: no-repeat;
+  margin-top: 12px;
+  margin-bottom: -12px;
+  margin-left: 12px
+}
+#title {
+  font-weight: bolder;
+  padding-left: 80px;
+  margin-top: -9px;
+  margin-left: -27px;
+  font-size: 24px;
+}
+
 .ember-app {
   width: 100%;
   height: 100%;
