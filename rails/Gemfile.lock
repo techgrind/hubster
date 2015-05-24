@@ -39,17 +39,49 @@ GEM
       thread_safe (~> 0.3, >= 0.3.4)
       tzinfo (~> 1.1)
     arel (6.0.0)
+    axiom-types (0.1.1)
+      descendants_tracker (~> 0.0.4)
+      ice_nine (~> 0.11.0)
+      thread_safe (~> 0.3, >= 0.3.1)
     binding_of_caller (0.7.2)
       debug_inspector (>= 0.0.1)
     builder (3.2.2)
     byebug (5.0.0)
       columnize (= 0.9.0)
+    coercible (1.0.0)
+      descendants_tracker (~> 0.0.1)
     columnize (0.9.0)
     debug_inspector (0.0.2)
+    descendants_tracker (0.0.4)
+      thread_safe (~> 0.3, >= 0.3.1)
+    equalizer (0.0.11)
     erubis (2.7.0)
     globalid (0.3.5)
       activesupport (>= 4.1.0)
+    grape (0.11.0)
+      activesupport
+      builder
+      hashie (>= 2.1.0)
+      multi_json (>= 1.3.2)
+      multi_xml (>= 0.5.2)
+      rack (>= 1.3.0)
+      rack-accept
+      rack-mount
+      virtus (>= 1.0.0)
+    grape-entity (0.4.5)
+      activesupport
+      multi_json (>= 1.3.2)
+    grape-swagger (0.10.1)
+      grape (>= 0.8.0)
+      grape-entity
+    grape-swagger-rails (0.1.0)
+      grape-swagger (>= 0.7.2)
+      railties (>= 3.2.12)
+    hashie (3.4.1)
+    hashie-forbidden_attributes (0.1.1)
+      hashie (>= 3.0)
     i18n (0.7.0)
+    ice_nine (0.11.1)
     json (1.8.2)
     loofah (2.0.2)
       nokogiri (>= 1.5.9)
@@ -58,10 +90,16 @@ GEM
     mime-types (2.5)
     mini_portile (0.6.2)
     minitest (5.6.1)
+    multi_json (1.11.0)
+    multi_xml (0.5.5)
     nokogiri (1.6.6.2)
       mini_portile (~> 0.6.0)
     pg (0.18.2)
     rack (1.6.1)
+    rack-accept (0.4.5)
+      rack (>= 0.4)
+    rack-mount (0.8.3)
+      rack (>= 1.0.0)
     rack-test (0.6.3)
       rack (>= 1.0)
     rails (4.2.1)
@@ -105,6 +143,11 @@ GEM
     thread_safe (0.3.5)
     tzinfo (1.2.2)
       thread_safe (~> 0.1)
+    virtus (1.0.5)
+      axiom-types (~> 0.1)
+      coercible (~> 1.0)
+      descendants_tracker (~> 0.0, >= 0.0.3)
+      equalizer (~> 0.0, >= 0.0.9)
     web-console (2.1.2)
       activemodel (>= 4.0)
       binding_of_caller (>= 0.7.2)
@@ -117,6 +160,10 @@ PLATFORMS
 DEPENDENCIES
   active_model_serializers
   byebug
+  grape
+  grape-swagger
+  grape-swagger-rails
+  hashie-forbidden_attributes
   pg
   rails (= 4.2.1)
   sdoc (~> 0.4.0)
