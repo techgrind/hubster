@@ -27,7 +27,7 @@
       .icon('phone', './images/phone.svg', 512);
 
     $mdThemingProvider.theme('default')
-      .primaryPalette('brown')
+      .primaryPalette('pink')
       .accentPalette('red');
   }
   angular.module('hubster').config(NgMaterialConfig);
