@@ -20,22 +20,22 @@
       {id: 2, firstName: 'Jeff', lastName: 'Ancel'}
     ];
 
-    vm.addPerson = function(){
+    vm.addPerson = function () {
       if (vm.newPersonForm.$dirty) {
         vm.persons.push(angular.copy(vm.tempPerson));
         vm.clearPerson();
       }
     };
 
-    vm.clearPerson= function(){
+    vm.clearPerson = function () {
       vm.tempPerson = undefined;
-      
-      $timeout(function(){
+
+      $timeout(function () {
         vm.newPersonForm.$setPristine();
       }, 50);
     };
 
-    // vm.clearPerson();    
+    // vm.clearPerson();
     vm.ctrlName = 'HomeCtrl';
     $log.debug('HomeCtrl::End');
   }
