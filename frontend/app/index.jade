@@ -25,12 +25,12 @@ html(lang='en' data-ng-app='hubster')
         md-list-item(ng-repeat="it in app.users")
           md-button(ng-click="ul.selectUser(it)" ng-class="{'selected' : it === ul.selected }")
             md-icon(md-svg-icon="{{it.avatar}}" class="avatar")
-              {{it.name}}
+              | {{it.name}}
 
 
     div.md-whiteframe-z2(flex layout="column" tabIndex="-1" role="main")
       md-toolbar.md-whiteframe-z1(layout="row")
-        md-button.menu(hide-gt-sm ng-click="ul.toggleList()" aria-label="Show User List")
+        md-button.menu(hide-gt-sm ng-click="app.toggleLeft()" aria-label="Show Navigation")
           md-icon(md-svg-icon="menu")
         h1 Hubster Material
 

@@ -12,14 +12,22 @@
     .module('hubster')
     .controller('AppCtrl', AppCtrl);
 
-  function AppCtrl($log, $rootScope) {
+  function AppCtrl($log, $rootScope, $mdSidenav, $mdUtil) {
     var vm = this;
-    $log.log('Test->log');
-    $log.debug('Test->debug');
-    $log.info('Test->info');
-    $log.warn('Test->warn');
-    $log.error('Test->error');
+    // $log.log('Test->log');
+    // $log.debug('Test->debug');
+    // $log.info('Test->info');
+    // $log.warn('Test->warn');
+    // $log.error('Test->error');
     vm.ctrlName = 'AppCtrl';
+
+    vm.toggleLeft = function () {
+      var debounceFn = $mdUtil.debounce(function () {
+        $mdSidenav('left')
+          .toggle();
+      }, 300);
+      return debounceFn();
+    };
 
     // Let's attache to state change events and have an early alert system of
     // where an error has occurred

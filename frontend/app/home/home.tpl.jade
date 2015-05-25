@@ -3,6 +3,11 @@ p {{home.ctrlName}}
 p A test of faith here, this is react...
 react-component(name="HelloComponent" props="home.persons[0]" watch-depth="reference")
 br
+react-component(name="FabComponent" props="{icon: 'cog'}")
+//- br
+//- button.md-fab.md-button.md-default-theme
+//-   i.fa.fa-cog.md-default-theme
+br
 input(type="text" ng-model="home.persons[0].firstName")
 br
 hello(id="home.persons[1].id" first-name="home.persons[1].firstName" last-name="home.persons[1].lastName" watch-depth="reference")
