@@ -1,0 +1,1 @@
+var HelloComponent = React.createClass({propTypes: {id: React.PropTypes.number.isRequired,firstName : React.PropTypes.string.isRequired,lastName : React.PropTypes.string.isRequired},render: function() {return React.createElement('span', null, ["Hello ", this.props.firstName, " ", this.props.lastName]) }})

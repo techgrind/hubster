@@ -95,7 +95,8 @@ module.exports = function (gulp, $, config) {
       , coffeeFilter = $.filter('**/*.coffee')
       , es6Filter = $.filter('**/*.es6')
       , htmlFilter = $.filter('**/*.html')
-      , jsFilter = $.filter('**/*.js');
+      , jsFilter = $.filter('**/*.js')
+      , jsxFilter = $.filter('**/*.jsx');
 
     return gulp.src([
       config.appScriptFiles,
@@ -116,6 +117,10 @@ module.exports = function (gulp, $, config) {
       .pipe(coffeeFilter)
       .pipe($.coffee())
       .pipe(coffeeFilter.restore())
+      // PIPE jsx here
+      .pipe(jsxFilter)
+      .pipe($.react())
+      .pipe(jsxFilter.restore())
       .pipe($.if(isProd, htmlFilter))
       .pipe($.if(isProd, $.ngHtml2js({
         // lower camel case all app names

@@ -6,7 +6,7 @@ var HelloComponent = React.createClass({
     lastName : React.PropTypes.string.isRequired
   },
   render: function() {
-    return React.createElement('span', {id: this.props.id}, 'Hello ' + this.props.firstName + ' ' + this.props.lastName);
+    return <span>Hello {this.props.firstName} {this.props.lastName}</span>;
   }
 })
 angular.module('hubster').value('HelloComponent', HelloComponent);
