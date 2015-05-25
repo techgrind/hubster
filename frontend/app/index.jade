@@ -11,9 +11,32 @@ html(lang='en' data-ng-app='hubster')
     |<!-- endbower -->
     |<!-- inject:css -->
     |<!-- endinject -->
-  body
 
-    div(data-ui-view)
+
+
+  body(data-ng-controller='AppCtrl as app' layout='row')
+    md-sidenav.site-sidenav.md-sidenav-left.md-whiteframe-z2(md-component-id="left" md-is-locked-open="$mdMedia('gt-sm')")
+
+      md-toolbar.md-whiteframe-z1
+        h1 hubster
+
+      //- This is your list of navigational components
+      md-list
+        md-list-item(ng-repeat="it in app.users")
+          md-button(ng-click="ul.selectUser(it)" ng-class="{'selected' : it === ul.selected }")
+            md-icon(md-svg-icon="{{it.avatar}}" class="avatar")
+              {{it.name}}
+
+
+    div.md-whiteframe-z2(flex layout="column" tabIndex="-1" role="main")
+      md-toolbar.md-whiteframe-z1(layout="row")
+        md-button.menu(hide-gt-sm ng-click="ul.toggleList()" aria-label="Show User List")
+          md-icon(md-svg-icon="menu")
+        h1 Hubster Material
+
+      md-content#content(flex)
+        div(data-ui-view)
+
 
     |<!-- bower:js -->
     |<!-- endbower -->
