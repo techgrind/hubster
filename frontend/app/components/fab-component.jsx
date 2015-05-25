@@ -6,9 +6,9 @@ var FabComponent = React.createClass({
   render : function () {
     var icon = "fa fa-" + this.props.icon + " md-default-theme"
     return (
-      <button className="md-fab md-button md-default-theme">
+      <a className="btn-floating btn-large waves-effect waves-light red">
         <i className={icon}></i>
-      </button>
+      </a>
     );
   }
 });

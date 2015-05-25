@@ -3,7 +3,7 @@ p {{home.ctrlName}}
 p A test of faith here, this is react...
 react-component(name="HelloComponent" props="home.persons[0]" watch-depth="reference")
 br
-react-component(name="FabComponent" props="{icon: 'cog'}")
+react-component(name="FabComponent" props="{icon: 'plus'}")
 //- br
 //- button.md-fab.md-button.md-default-theme
 //-   i.fa.fa-cog.md-default-theme
@@ -25,6 +25,10 @@ md-list
   //- li(ng-repeat='person in home.persons')
   //-   md-card 
   //-     hello(id="person.id" first-name="person.firstName" last-name="person.lastName" watch-depth="reference")
+br
+
+input-text(col=12 input-label="FirstName" ng-model="home.tempPerson.firstName")
+
 br
 
 form.form#person-form(name='home.newPersonForm' novalidate)
