@@ -13,7 +13,8 @@
       'ngMaterial',
       'log.ex.uo',
       'react',
-      'home'
+      'home',
+      'about'
     ]);
 
   function NgMaterialConfig($mdThemingProvider, $mdIconProvider) {

@@ -1,0 +1,22 @@
+h2 about
+p {{about.ctrlName}}
+md-list
+  md-list-item.md-2-line(ng-repeat='person in about.persons')
+    div.md-list-item-text
+      hello(id="person.id" first-name="person.firstName" last-name="person.lastName" watch-depth="reference")
+
+div(layout="column")
+  form.form#person-form(name='about.newPersonForm' novalidate)
+    div(layout="row" layout-margin)
+      div(flex)
+        md-input-container
+          label First Name
+          input(type="text" ng-model="about.tempPerson.firstName" md-maxlength="10")
+
+      div(flex)
+        md-input-container
+          label Last Name
+          input(type="text" ng-model="about.tempPerson.lastName" required)
+
+    md-button.md-raised(ng-click='about.addPerson()') Add Person
+    md-button(ng-click='about.clearPerson()') Cancel
