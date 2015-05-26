@@ -1,44 +1,21 @@
 h2 home
 p {{home.ctrlName}}
-p A test of faith here, this is react...
-react-component(name="HelloComponent" props="home.persons[0]" watch-depth="reference")
-br
-react-component(name="FabComponent" props="{icon: 'plus'}")
-//- br
-//- button.md-fab.md-button.md-default-theme
-//-   i.fa.fa-cog.md-default-theme
-br
-input(type="text" ng-model="home.persons[0].firstName")
-br
-hello(id="home.persons[1].id" first-name="home.persons[1].firstName" last-name="home.persons[1].lastName" watch-depth="reference")
-br
-input(type="text" ng-model="home.persons[1].firstName")
-br
-
-
-br
 md-list
   md-list-item.md-2-line(ng-repeat='person in home.persons')
     div.md-list-item-text
       hello(id="person.id" first-name="person.firstName" last-name="person.lastName" watch-depth="reference")
 
-  //- li(ng-repeat='person in home.persons')
-  //-   md-card 
-  //-     hello(id="person.id" first-name="person.firstName" last-name="person.lastName" watch-depth="reference")
-br
+div(layout="column" flex)
+  form.form#person-form(name='home.newPersonForm' novalidate)
+    div(flex="50")
+      md-input-container
+        label First Name
+        input(type="text" ng-model="home.tempPerson.firstName" md-maxlength="10")
 
-input-text(col=12 input-label="'Another Name'" model="'home.tempPerson.firstName'")
+    div(flex="50")
+      md-input-container
+        label Last Name
+        input(type="text" ng-model="home.tempPerson.lastName" required)
 
-br
-
-form.form#person-form(name='home.newPersonForm' novalidate)
-  md-input-container
-    label First Name
-    input(type="text" ng-model="home.tempPerson.firstName" md-maxlength="10")
-
-  md-input-container
-    label Last Name
-    input(type="text" ng-model="home.tempPerson.lastName" required)
-
-  md-button.md-raised(ng-click='home.addPerson()') Add Person
-  md-button(ng-click='home.clearPerson()') Cancel
+    md-button.md-raised(ng-click='home.addPerson()') Add Person
+    md-button(ng-click='home.clearPerson()') Cancel
