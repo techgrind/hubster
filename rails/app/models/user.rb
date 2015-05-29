@@ -1,11 +1,18 @@
 class User < ActiveRecord::Base
-  # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable and :omniauthable
-  devise :database_authenticatable, :registerable, :confirmable,
-         :recoverable, :rememberable, :trackable, :validatable
+  # Include default devise modules.
+  devise :database_authenticatable, :registerable,
+          :recoverable, :rememberable, :trackable, :validatable,
+          :confirmable, :omniauthable
 
-  def generate_token
-    payload = { user_id: self.id }
-    TokenProvider.encode(payload)
+  include DeviseTokenAuth::Concerns::User
+
+  before_validation :set_provider
+  def set_provider
+    self[:provider] = "email" if self[:provider].blank?
+  end
+
+  before_validation :set_uid
+  def set_uid
+    self[:uid] = self[:email] if self[:uid].blank? && self[:email].present?
   end
 end
