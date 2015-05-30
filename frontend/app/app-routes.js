@@ -7,10 +7,12 @@
 
   function config($stateProvider, $urlRouterProvider, $httpProvider) {
     $stateProvider.state('app', {
-      abstract: true
+      abstract: true,
+      controller: 'AppCtrl as app',
+      template: '<div ui-view></div>'
     });
 
-    $urlRouterProvider.otherwise('/auth');
+    $urlRouterProvider.otherwise('/home');
 
     $httpProvider.interceptors.push('AuthInterceptor');
   }

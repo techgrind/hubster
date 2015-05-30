@@ -9,6 +9,7 @@
     $stateProvider
       .state('app.auth', {
         url: '/auth',
+        abstract: true,
         templateUrl: 'auth/auth.tpl.html',
         controller: 'AuthCtrl',
         controllerAs: 'auth'

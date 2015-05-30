@@ -12,8 +12,9 @@
     .module('hubster')
     .controller('AppCtrl', AppCtrl);
 
-  function AppCtrl($log, $rootScope, config) {
+  function AppCtrl($log, $rootScope, $state, config, UserService) {
     var vm = this;
+    $log.debug('AppCtrl::begin');
     // $log.log('Test->log');
     // $log.debug('Test->debug');
     // $log.info('Test->info');
@@ -22,6 +23,18 @@
     vm.ctrlName = 'AppCtrl';
 
     vm.config = config;
+
+    // Auth
+    $rootScope.$on('authorized', function () {
+      $log.debug('AppCtrl::authorized');
+      vm.currentUser = UserService.getCurrentUser();
+    });
+
+    $rootScope.$on('unauthorized', function () {
+      $log.debug('AppCtrl::unauthorized');
+      vm.currentUser = UserService.setCurrentUser(null);
+      $state.go(config.loginState);
+    });
 
     // Let's attache to state change events and have an early alert system of
     // where an error has occurred
@@ -44,5 +57,12 @@
       $log.debug('event, toState, toParams, fromState, fromParams', event, toState, toParams, fromState, fromParams);
       $log.error('An error occurred that prevented you from transitioning states.', error);
     });
+
+    if (UserService.getCurrentUser() === null) {
+      $log.debug('User is not authenticated');
+      $rootScope.$broadcast('unauthorized');
+    }
+
+    $log.debug('AppCtrl::end');
   }
 }());

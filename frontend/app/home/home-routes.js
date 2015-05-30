@@ -7,7 +7,7 @@
 
   function config($stateProvider) {
     $stateProvider
-      .state('home', {
+      .state('app.home', {
         url: '/home',
         templateUrl: 'home/home.tpl.html',
         controller: 'HomeCtrl',

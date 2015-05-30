@@ -1,0 +1,11 @@
+div.inputs
+  input.form-control(type="text" ng-model="login.email" placeholder="email")
+  input.form-control(type="password" ng-model="login.password" placeholder="password")
+div.actions
+  button.btn.btn-primary(ng-click="login.submit()") Login
+div.links
+  span Don't have an account? 
+    a(ui-sref='app.auth.signUp') Sign Up
+div.links
+  span Forgot your password? 
+    a(ui-sref='app.auth.passwordReset') Reset Password

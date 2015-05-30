@@ -11,6 +11,7 @@
   angular
     .module('hubster')
     .constant('config', {
-      name: 'Hubster'
+      name: 'Hubster',
+      loginState: 'app.auth.login'
     });
 }());
