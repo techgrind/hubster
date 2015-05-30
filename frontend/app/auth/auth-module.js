@@ -2,12 +2,12 @@
   'use strict';
 
   /* @ngdoc object
-   * @name home
+   * @name auth
    * @description
    *
    */
   angular
-    .module('about', [
+    .module('auth', [
       'ui.router'
     ]);
 }());

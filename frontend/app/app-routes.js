@@ -5,7 +5,13 @@
     .module('hubster')
     .config(config);
 
-  function config($urlRouterProvider) {
-    $urlRouterProvider.otherwise('/home');
+  function config($stateProvider, $urlRouterProvider, $httpProvider) {
+    $stateProvider.state('app', {
+      abstract: true
+    });
+
+    $urlRouterProvider.otherwise('/auth');
+
+    $httpProvider.interceptors.push('AuthInterceptor');
   }
 }());

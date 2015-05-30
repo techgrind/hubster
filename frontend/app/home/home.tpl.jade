@@ -1,23 +1,2 @@
 h2 home
 p {{home.ctrlName}}
-md-list
-  md-list-item.md-2-line(ng-repeat='person in home.persons')
-    div.md-list-item-text
-      hello(id="person.id" first-name="person.firstName" last-name="person.lastName" watch-depth="reference")
-
-div(layout="column" flex)
-  form.form#person-form(name='home.newPersonForm' novalidate)
-    div(flex="50")
-
-      
-      md-input-container
-        label First Name
-        input(type="text" ng-model="home.tempPerson.firstName" md-maxlength="10")
-
-    div(flex="50")
-      md-input-container
-        label Last Name
-        input(type="text" ng-model="home.tempPerson.lastName" required)
-
-    md-button.md-raised(ng-click='home.addPerson()') Add Person
-    md-button(ng-click='home.clearPerson()') Cancel
