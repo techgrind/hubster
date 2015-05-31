@@ -12,9 +12,15 @@
     .module('hubster')
     .controller('AppCtrl', AppCtrl);
 
-  function AppCtrl($log, $rootScope, $state, config, UserService) {
+  function AppCtrl($log, $auth, $rootScope, $state, config, UserService) {
     var vm = this;
     $log.debug('AppCtrl::begin');
+
+    if (UserService.getCurrentUser() === null) {
+      $log.debug('User is not authenticated');
+      $rootScope.$broadcast('unauthorized');
+    }
+
     // $log.log('Test->log');
     // $log.debug('Test->debug');
     // $log.info('Test->info');
@@ -26,6 +32,13 @@
 
     vm.signOut = function () {
       $rootScope.$broadcast('unauthorized');
+      $auth.signOut()
+        .then(function(resp) {
+          $log.debug("Successfully Logged Out " + resp);
+        })
+        .catch(function(resp) {
+          $log.debug("Unsuccessful Logged Out" + resp);
+        })
     };
 
     // Auth
@@ -36,7 +49,7 @@
 
     $rootScope.$on('unauthorized', function () {
       $log.debug('AppCtrl::unauthorized');
-      vm.currentUser = UserService.setCurrentUser(null);
+      
       $state.go(config.loginState);
     });
 
@@ -61,11 +74,6 @@
       $log.debug('event, toState, toParams, fromState, fromParams', event, toState, toParams, fromState, fromParams);
       $log.error('An error occurred that prevented you from transitioning states.', error);
     });
-
-    if (UserService.getCurrentUser() === null) {
-      $log.debug('User is not authenticated');
-      $rootScope.$broadcast('unauthorized');
-    }
 
     $log.debug('AppCtrl::end');
   }
