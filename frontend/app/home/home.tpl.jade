@@ -13,5 +13,7 @@
           a(data-ui-sref='home') Home
 
 .container
-  button.btn.btn-primary.btn-lg(ng-click='app.signOut()' ng-show='!app.currentUser()') Sign out
+  button.btn.btn-primary.btn-lg(ng-click='home.signOut()' ng-show='!home.currentUser()') Sign out
+  a.btn.btn-primary.btn-lg(ui-sref='auth.login' ng-show='home.currentUser()') Sign in
+
   div(data-ui-view)

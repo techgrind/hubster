@@ -23,19 +23,13 @@
         .then(function (resp) {
           // handle success
           $log.debug(vm.ctrlName + '$auth.submitRegistration success: ' + resp);
-          if (resp.data.status === "success") {
-            UserService.setCurrentUser(resp.data.data);
-            $state.transitionTo('app.home');
-            $rootScope.$broadcast('authorized');
-          } else {
-            // Show them an error message perhaps
-            $log.debug(vm.ctrlName + '$auth.submitRegistration status != success: ' + resp);
-          }
+          vm.message = 'A registration email has been sent to ' + 
+            resp.email + ' . Please check your email and then log in.';
         })
         .catch(function (resp) {
           // handle errors
           $log.debug(vm.ctrlName + '$auth.submitRegistration error: ' + resp);
-          $rootScope.$broadcast('unauthorized');
+          vm.message = resp.data.errors.full_messages[0];
         });
     };
 

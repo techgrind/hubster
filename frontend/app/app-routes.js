@@ -13,7 +13,5 @@
     });
 
     $urlRouterProvider.otherwise('/home');
-
-    $httpProvider.interceptors.push('AuthInterceptor');
   }
 }());

@@ -20,20 +20,11 @@
     vm.submit = function () {
       $log.debug(vm.ctrlName + '::submitting form');
       $auth.submitLogin({email: vm.email, password: vm.password})
-        .then(function (result) {
-          // handle success
-          if (angular.isDefined(result.errors)){
-            $log.debug(vm.ctrlName + '$auth.submitLogin status != success: ' + result.errors);
-            $rootScope.$broadcast('unauthorized');
-          } else {
-            UserService.setCurrentUser(result);
-            $state.transitionTo('app.home');
-            $rootScope.$broadcast('authorized');          
-            debugger;
-          }
-        }, function (error) {
-          $log.debug(vm.ctrlName + '$auth.submitLogin status != success: ' + error);
-          $rootScope.$broadcast('unauthorized');
+        .then(function (response) {
+          // Success
+        })
+        .catch(function (response) {
+          // Fail
         });
     };
 

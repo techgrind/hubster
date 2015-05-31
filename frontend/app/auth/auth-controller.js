@@ -12,11 +12,24 @@
     .module('auth')
     .controller('AuthCtrl', AuthCtrl);
 
-  function AuthCtrl($log) {
+  function AuthCtrl($rootScope, $state, $log, UserService) {
     var vm = this;
-    $log.debug('AuthCtrl::begin');
-
     vm.ctrlName = 'AuthCtrl';
+    $log.debug(vm.ctrlName + '::begin');
+
+
+    $rootScope.$on('auth:login-success', function (ev, user) {
+      $log.debug(vm.ctrlName + 'User is now logged in.');
+      UserService.setCurrentUser(user);
+      $state.go('app.home');
+    });
+
+    $rootScope.$on('auth:logout-success', function (ev) {
+      $log.debug(vm.ctrlName + 'User is now logged out.');
+      UserService.setCurrentUser(null);
+      $state.go('auth.login');
+    });
+
     $log.debug('AuthCtrl::end');
   }
 }());

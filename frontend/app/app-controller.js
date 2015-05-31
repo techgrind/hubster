@@ -15,12 +15,6 @@
   function AppCtrl($log, $auth, $rootScope, $state, config, UserService) {
     var vm = this;
     $log.debug('AppCtrl::begin');
-
-    if (UserService.getCurrentUser() === null) {
-      $log.debug('User is not authenticated');
-      $rootScope.$broadcast('unauthorized');
-    }
-
     // $log.log('Test->log');
     // $log.debug('Test->debug');
     // $log.info('Test->info');
@@ -31,7 +25,6 @@
     vm.config = config;
 
     vm.signOut = function () {
-      $rootScope.$broadcast('unauthorized');
       $auth.signOut()
         .then(function(resp) {
           $log.debug("Successfully Logged Out " + resp);
@@ -40,18 +33,6 @@
           $log.debug("Unsuccessful Logged Out" + resp);
         })
     };
-
-    // Auth
-    $rootScope.$on('authorized', function () {
-      $log.debug('AppCtrl::authorized');
-      vm.currentUser = UserService.getCurrentUser();
-    });
-
-    $rootScope.$on('unauthorized', function () {
-      $log.debug('AppCtrl::unauthorized');
-      
-      $state.go(config.loginState);
-    });
 
     // Let's attache to state change events and have an early alert system of
     // where an error has occurred
@@ -73,6 +54,9 @@
       event.preventDefault();
       $log.debug('event, toState, toParams, fromState, fromParams', event, toState, toParams, fromState, fromParams);
       $log.error('An error occurred that prevented you from transitioning states.', error);
+      if (error.reason === 'unauthorized') {
+        $state.go(config.loginState)
+      }
     });
 
     $log.debug('AppCtrl::end');

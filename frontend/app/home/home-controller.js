@@ -12,13 +12,13 @@
     .module('home')
     .controller('HomeCtrl', HomeCtrl);
 
-  function HomeCtrl($log, $timeout) {
+  function HomeCtrl($log, $timeout, UserService) {
     var vm = this;
     $log.debug('HomeCtrl::Begin');
-    vm.persons = [
-      {id: 1, firstName: 'Artem', lastName: 'Chernyak'},
-      {id: 2, firstName: 'Jeff', lastName: 'Ancel'}
-    ];
+
+    vm.currentUser = function () {
+      return UserService.getCurrentUser() === null;
+    };
 
     vm.addPerson = function () {
       if (vm.newPersonForm.$dirty) {
