@@ -24,6 +24,10 @@
 
     vm.config = config;
 
+    vm.signOut = function () {
+      $rootScope.$broadcast('unauthorized');
+    };
+
     // Auth
     $rootScope.$on('authorized', function () {
       $log.debug('AppCtrl::authorized');

@@ -12,6 +12,10 @@
         templateUrl: 'home/home.tpl.html',
         controller: 'HomeCtrl',
         controllerAs: 'home'
+        // resolve: {
+        // auth: function ($auth) {
+        //   return $auth.validateUser();
+        // }
       });
   }
 }());

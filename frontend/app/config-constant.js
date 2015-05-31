@@ -12,6 +12,6 @@
     .module('hubster')
     .constant('config', {
       name: 'Hubster',
-      loginState: 'app.auth.login'
+      loginState: 'auth.login'
     });
 }());

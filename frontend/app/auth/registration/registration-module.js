@@ -2,12 +2,12 @@
   'use strict';
 
   /* @ngdoc object
-   * @name login
+   * @name registration
    * @description
    *
    */
   angular
-    .module('auth.login', [
+    .module('auth.registration', [
       'ui.router'
     ]);
 }());

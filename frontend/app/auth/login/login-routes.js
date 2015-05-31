@@ -2,16 +2,23 @@
   'use strict';
 
   angular
-    .module('login')
+    .module('auth.login')
     .config(config);
 
   function config($stateProvider) {
     $stateProvider
-      .state('app.auth.login', {
+      .state('auth.login', {
         url: '/login',
         templateUrl: 'auth/login/login.tpl.html',
         controller: 'LoginCtrl',
         controllerAs: 'login'
+      });
+    $stateProvider
+      .state('auth.resetPassword', {
+        url: '/reset_password',
+        templateUrl: 'auth/login/reset-password.tpl.html',
+        controller: 'ResetPasswordCtrl',
+        controllerAs: 'resetPassword'
       });
   }
 }());

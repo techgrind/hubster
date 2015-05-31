@@ -13,4 +13,5 @@
           a(data-ui-sref='home') Home
 
 .container
+  button.btn.btn-primary.btn-lg(ng-click='app.signOut()' ng-show='!app.currentUser()') Sign out
   div(data-ui-view)

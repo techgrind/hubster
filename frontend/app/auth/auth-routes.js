@@ -7,7 +7,7 @@
 
   function config($stateProvider) {
     $stateProvider
-      .state('app.auth', {
+      .state('auth', {
         url: '/auth',
         abstract: true,
         templateUrl: 'auth/auth.tpl.html',

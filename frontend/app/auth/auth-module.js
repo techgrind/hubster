@@ -11,7 +11,8 @@
       'ui.router',
       'rails',
       'ng-token-auth',
-      'login'
+      'auth.login',
+      'auth.registration'
     ]);
 
   function AuthProvider($authProvider) {
