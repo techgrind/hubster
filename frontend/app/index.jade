@@ -12,9 +12,29 @@ html(lang='en' data-ng-app='hubster')
     |<!-- inject:css -->
     |<!-- endinject -->
 
-  body
-    div(ui-view)
+  body(data-ng-controller='AppCtrl as app')
+    .navbar.navbar-default
+        .navbar-header
+          button.navbar-toggle(type="button" data-toggle="collapse" data-target=".navbar-responsive-collapse")
+            span.icon-bar
+            span.icon-bar
+            span.icon-bar
+          a.navbar-brand(href='#/') {{app.config.name}}
+        .navbar-collapse.collapse.navbar-responsive-collapse
+          ul.nav.navbar-nav
+            li(data-ui-sref-active='active')
+              a(data-ui-sref='home') Home
+            li(data-ui-sref-active='active')
+              a(data-ui-sref='auth.login') Log in
+            li(data-ui-sref-active='active')
+              a(data-ui-sref='auth.register') Register
+          ul.nav.navbar-nav.navbar-right(data-ng-controller="HomeCtrl as home")
+
+    .container        
+      div(ui-view)
     |<!-- bower:js -->
     |<!-- endbower -->
     |<!-- inject:js -->
     |<!-- endinject -->
+    script(type="text/javascript").
+      $.material.init()
