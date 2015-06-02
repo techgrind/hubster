@@ -126,6 +126,17 @@ span.name {
 }
 
 .form-control-wrapper {
-  margin-top: 15px;
-  margin-bottom: 15px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+
+  .form-control-wrapper .form-control:not(textarea), .form-control:not(textarea) {
+    height: 40px;
+    font-size: 24px;
+  }
+
+  .floating-label {
+    font-size: 20px;
+  }
 }
+
+

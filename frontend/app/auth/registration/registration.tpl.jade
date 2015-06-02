@@ -9,9 +9,13 @@ div.container
       span 
         |{{registration.message}}
     div.inputs
-      input.form-control(type="text" ng-model="registration.name" placeholder="Full Name")
-      input.form-control(type="text" ng-model="registration.email" placeholder="Email")
-      input.form-control(type="password" ng-model="registration.password" placeholder="Password")
+      div.form-group
+        div.form-control-wrapper
+          input.form-control.floating-label(type="text" ng-model="registration.name" placeholder="Full Name")
+        div.form-control-wrapper
+          input.form-control.floating-label(type="text" ng-model="registration.email" placeholder="Email")
+        div.form-control-wrapper
+          input.form-control.floating-label(type="password" ng-model="registration.password" placeholder="Password")
     div.actions
       button.btn.btn-primary(ng-click="registration.submit()") Register Now
       button.btn.btn-warning.btn-flat(ui-sref="auth.login") Back to Login
