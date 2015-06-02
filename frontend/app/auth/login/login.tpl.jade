@@ -1,10 +1,14 @@
 h1.header
   |Log In
 div.inputs
-  input.form-control(type="text" ng-model="login.email" placeholder="email")
-  input.form-control(type="password" ng-model="login.password" placeholder="password")
+  div.form-group
+    div.form-control-wrapper
+      input.form-control.floating-label(type="text" ng-model="login.email" placeholder="Email")
+    div.form-control-wrapper
+      input.form-control.floating-label(type="password" ng-model="login.password" placeholder="Password")
 div.actions
-  button.btn.btn-primary(ng-click="login.submit()") Login
+  div.form-control-wrapper
+    button.btn.btn-primary(ng-click="login.submit()") Login
 div.links
   span Don't have an account? 
     a(ui-sref='auth.register') Sign Up
