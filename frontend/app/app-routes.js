@@ -5,7 +5,7 @@
     .module('hubster')
     .config(config);
 
-  function config($stateProvider, $urlRouterProvider, $httpProvider) {
+  function config($stateProvider, $urlRouterProvider) {
     $stateProvider.state('app', {
       abstract: true,
       controller: 'AppCtrl as app',

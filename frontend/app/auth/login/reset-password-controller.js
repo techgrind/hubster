@@ -21,7 +21,7 @@
       $auth.requestPasswordReset(vm.email)
         .then(function (resp) {
           // Success
-          vm.message = 'Password reset instructions were sent to '  + resp.email;
+          vm.message = 'Password reset instructions were sent to ' + resp.email;
         })
         .catch(function (resp) {
           // Fail

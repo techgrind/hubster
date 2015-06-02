@@ -12,7 +12,7 @@
     .module('auth.login')
     .controller('LoginCtrl', LoginCtrl);
 
-  function LoginCtrl($rootScope, $state, $log, $auth, UserService) {
+  function LoginCtrl($rootScope, $state, $log, $auth) {
     var vm = this;
     vm.ctrlName = 'LoginCtrl';
     $log.debug(vm.ctrlName + '::begin');
@@ -20,10 +20,10 @@
     vm.submit = function () {
       $log.debug(vm.ctrlName + '::submitting form');
       $auth.submitLogin({email: vm.email, password: vm.password})
-        .then(function (response) {
+        .then(function () {
           // Success
         })
-        .catch(function (response) {
+        .catch(function () {
           // Fail
         });
     };

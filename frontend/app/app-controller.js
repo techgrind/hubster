@@ -12,7 +12,7 @@
     .module('hubster')
     .controller('AppCtrl', AppCtrl);
 
-  function AppCtrl($log, $auth, $rootScope, $state, config, UserService) {
+  function AppCtrl($log, $auth, $rootScope, $state, config) {
     var vm = this;
     $log.debug('AppCtrl::begin');
     // $log.log('Test->log');
@@ -26,12 +26,12 @@
 
     vm.signOut = function () {
       $auth.signOut()
-        .then(function(resp) {
-          $log.debug("Successfully Logged Out " + resp);
+        .then(function (resp) {
+          $log.debug('Successfully Logged Out' + resp);
         })
-        .catch(function(resp) {
-          $log.debug("Unsuccessful Logged Out" + resp);
-        })
+        .catch(function (resp) {
+          $log.debug('Unsuccessful Logged Out' + resp);
+        });
     };
 
     // Let's attache to state change events and have an early alert system of
@@ -55,7 +55,7 @@
       $log.debug('event, toState, toParams, fromState, fromParams', event, toState, toParams, fromState, fromParams);
       $log.error('An error occurred that prevented you from transitioning states.', error);
       if (error.reason === 'unauthorized') {
-        $state.go(config.loginState)
+        $state.go(config.loginState);
       }
     });
 
