@@ -5,7 +5,7 @@
     .module('hubster')
     .config(config);
 
-  function config($urlRouterProvider) {
+  function config($urlRouterProvider, $stateProvider) {
     $urlRouterProvider.otherwise('/home');
   }
 }());

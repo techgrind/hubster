@@ -4,14 +4,13 @@
   class AppCtrl {
     constructor($mdSidenav, $log) {
       this.ctrlName = 'AppCtrl';
-      this.$log = $log;
       this.$mdSidenav = $mdSidenav;
-      $log.debug = "AppCtrl::Start"
+      this.$log = $log;
+      this.$log.debug(this.ctrlName + "::Start");
     }
 
-    render
-
     toggleSidenav(menuId) {
+      this.$log.debug(this.ctrlName + "::toggleSidenave")
       this.$mdSidenav(menuId).toggle();
     }
   }
