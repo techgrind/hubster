@@ -22,13 +22,11 @@ html(lang='en' data-ng-app='hubster')
         md-item 
           a 
             md-item-content(md-ink-ripple layout="row" layout-align="start center")
-              div.inset
-                |Log In
+              div.inset Log In
         md-item 
           a 
             md-item-content(md-ink-ripple layout="row" layout-align="start center")
-              div.inset
-                |Sign Up
+              div.inset Sign Up
     div.relative(layout="column" layout-fill role="main")
       md-button.md-fab.md-fab-bottom-right(aria-label="Add" ng-click="showAdd($event)")
         ng-md-icon(icon="add")
@@ -40,7 +38,7 @@ html(lang='en' data-ng-app='hubster')
           span(flex)
           md-button(aria-label="Search" ng-click="showSearch = !showSearch")
             ng-md-icon(icon="search")
-          md-button(aria-label="Open Settings" ng-click="showListBottomSeet($event)")
+          md-button(aria-label="Open Settings" ng-click="showSettings = !showSettings")
             ng-md-icon(icon="more_vert")
       md-toolbar.md-hue-1(ng-show="showSearch")
         .md-toolbar-tools
@@ -53,7 +51,18 @@ html(lang='en' data-ng-app='hubster')
           md-button(aria-label="Search" ng-click="showSearch = !showSearch")
             ng-md-icon(icon="search")
           md-button(aria-label="Open Setting" ng-click="showListBottomSheet($event)")
-            ng-md-icon(icon="more_vert") 
+            ng-md-icon(icon="more_vert")
+      md-bottom-sheet.md-list.md-has-header(ng-show="showSettings")
+        md-subheader Settings
+        md-list
+          md-item
+            md-item-content(md-ink-ripple flex class="inset")
+              a(flex aria-label="Display")
+                span.md-inline-list-icon-label Display
+          md-item
+            md-item-content(md-ink-ripple flex class="inset")
+              a(flex aria-label="Privacy")
+                span.md-inline-list-icon-label Privacy
           
 
     |<!-- bower:js -->
