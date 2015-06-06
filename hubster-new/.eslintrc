@@ -39,7 +39,7 @@
     "angular/ng_window_service": [2, true],
     "block-scoped-var": [2, true],
     "brace-style": [2, "1tbs", {"allowSingleLine": false}],
-    "camelcase": [2, true],
+    "camelcase": [2, {"properties":"never"}],
     "comma-dangle": [2, "never"],
     "comma-spacing": [2, {
       "after": true,

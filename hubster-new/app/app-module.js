@@ -11,8 +11,11 @@
       'ngAria',
       'ngMaterial',
       'ui.router',
+      'log.ex.uo',
+      'angular-storage',
       'ngMdIcons',
-      'home'
+      'home',
+      'auth'
     ]);
 
   function ThemeProvider($mdThemingProvider) {
@@ -34,4 +37,10 @@
 
   angular.module('hubster')
     .config(ThemeProvider);
+
+  function LogProvider(logExProvider) {
+    logExProvider.enableLogging(true);
+  }
+  angular.module('hubster')
+    .config(LogProvider);
 }());

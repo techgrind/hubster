@@ -1,5 +1,10 @@
 h1.header
   |Log In
+
+md-input-container
+  //- Use floating placeholder instead of label -->
+  md-icon.email(md-svg-src="img/icons/ic_email_24px.svg")
+  input(ng-model="user.email" type="email" placeholder="Email (required)" ng-required="true")
 div.inputs
   div.form-group
     div.form-control-wrapper

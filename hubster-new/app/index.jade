@@ -20,11 +20,11 @@ html(lang='en' data-ng-app='hubster')
           div test@example.com
       md-list
         md-item 
-          a 
+          a(ui-sref="auth.login")
             md-item-content(md-ink-ripple layout="row" layout-align="start center")
               div.inset Log In
         md-item 
-          a 
+          a(ui-sref="auth.register")
             md-item-content(md-ink-ripple layout="row" layout-align="start center")
               div.inset Sign Up
     div.relative(layout="column" layout-fill role="main")
@@ -44,7 +44,6 @@ html(lang='en' data-ng-app='hubster')
         .md-toolbar-tools
           md-button(ng-click="showSearch = !showSearch" aria-label="Back")
             ng-md-icon(icon="arrow_back")
-          h3 Back
           md-input-container(md-theme="input" flex)
             lable &nbsp;
             input(ng-model="search.who" placeholder="enter search")

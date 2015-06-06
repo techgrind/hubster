@@ -15,6 +15,11 @@
     "font-awesome": "~4.2.0",
     "lodash": "~2.4.1",
     "polymer": "Polymer/polymer#^1.0.0",
+    "angular-logex": "~0.0.10",
+    "a0-angular-storage": "~0.0.11",
+    "angular-rails-resource": "~2.0.0",
+    "ng-token-auth": "~0.0.25",
+    "centrifuge": "~0.8.0",
     "angular-material-icons": "~0.4.0"
   },
   "devDependencies": {
