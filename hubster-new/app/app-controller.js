@@ -12,7 +12,7 @@
     .module('hubster')
     .controller('AppCtrl', AppCtrl);
 
-  function AppCtrl($rootScope, $state, $mdSidenav, $mdDialog, $log, config) {
+  function AppCtrl($rootScope, $state, $mdSidenav, $mdDialog, $mdToast, $log, config) {
     var vm = this;
     vm.ctrlName = 'AppCtrl';
     $log.debug(vm.ctrlName + '::Start');
@@ -24,7 +24,7 @@
     };
 
     $rootScope.$on('alert', function () {
-      var alert,settings;
+      var alert, settings;
       settings = arguments[1];
       alert = $mdDialog.alert()
         .title(settings.title)
@@ -36,6 +36,19 @@
         .finally(function () {
           alert = undefined;
         });
+    });
+
+    $rootScope.$on('simple-toast', function (ev, settings) {
+      var toast, position;
+
+      position = 'false true false true';
+ 
+      toast = $mdToast.show(
+        $mdToast.simple()
+          .content(settings.content)
+          .position(position)
+          .hideDelay(3000)
+      );
     });
 
     // Let's attache to state change events and have an early alert system of
