@@ -1,53 +1,35 @@
-md-content.md-default-theme {
-  margin-right: 10%;
-  margin-left: 10%;
-}
-md-card {
-  background-color: #fff;
-  h2:first-of-type {
-    margin-top: 0;
-  }
-}
-md-toolbar {
-  .md-button.md-default-theme {
-    border-radius: 99%; // round toolbar buttons
-  }
-}
-h2 {
-  font-weight: 400;
-}
-.md-toolbar-tools-bottom {
-  font-size: small;
-  & :last-child {
-    opacity: 0.8;
-  }
-}
-md-toolbar:not(.md-hue-1),
-.md-fab {
-  fill: #fff;
-}
-md-sidenav {
-  fill: #737373;
-  ng-md-icon {
-    position: relative;
-    top: 5px; // adjust for svg viewbox
-  }
-  md-item {
-    width: 100%;
-  }
-  md-button {
-    width: 100%;
-  }
-}
-.user-avatar {
-  border-radius: 99%;
-}
-
-a {
-  text-decoration: none;
+body {
   color: #285052;
 }
 
-a:hover {
-  color: blue;
+.logo {
+  position: relative;
+  width: 100px; 
+  height: 57.74px;
+  background-color: #64C7CC;
+  margin: 28.87px auto;
+}
+
+.logo:before,
+.logo:after {
+  content: "";
+  position: absolute;
+  width: 0;
+  border-left: 50px solid transparent;
+  border-right: 50px solid transparent;
+}
+
+.logo:before {
+  bottom: 100%;
+  border-bottom: 28.87px solid #64C7CC;
+}
+
+.logo:after {
+  top: 100%;
+  width: 0;
+  border-top: 28.87px solid #64C7CC;
+}
+
+button {
+  padding: .5em;
 }

@@ -1,6 +1,16 @@
-div.auth-header
-  div.logo
-  h1 Hubster
-h2 Home
-p {{home.ctrlName}}
-p Hey Jeff
+div.home-container
+  header
+    div.logo
+    h1 Hubster
+  h2 Plan your next event with us!
+  md-button.md-raised.md-primary(flex ui-sref="auth.login") Get started
+  p - OR -
+  md-button.md-primary(flex) Learn More
+  br
+  p.sign-in Already have an account? 
+    a Sign In
+  p.terms By continuing, you accept 
+    a Terms of Use 
+    | and 
+    a Privacy Policy
+    | .

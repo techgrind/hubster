@@ -9,22 +9,7 @@ md-content.buttons(layout-padding="" layout="row")
   md-button.md-raised.md-primary(flex="" ng-click="login.submit()") Login
   md-button(flex="" ng-click="auth.back()") Back
 
-md-content(layout-padding="" layout="column")
-  p Or use an existing account:
-md-content.oauth-spacer(layout-padding="" layout="row")
-  a(href="#") 
-    md-button.md-fab.google
-      ng-md-icon(icon="google-plus")
-  a(href="#") 
-    md-button.md-fab.twitter
-      ng-md-icon(icon="twitter")
-  a(href="#")
-    md-button.md-fab.facebook
-      ng-md-icon(icon="facebook")
-  a(href="#")
-    md-button.md-fab.github-circle
-      ng-md-icon(icon="github-circle")
-
+oauth-buttons
 
 md-content(layout-padding="" layout="column")
     a(ui-sref="auth.resetPassword") Reset Password
