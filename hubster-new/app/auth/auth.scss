@@ -1,3 +1,11 @@
+h1 {
+  text-align: center;
+  color: #285052;
+}
+.auth-header {
+  margin-top: 60px;
+}
+
 .inputdemoIcons .inputIconDemo {
   min-height: 48px; }
 .inputdemoIcons md-input-container:not(.md-input-invalid) > md-icon.email {
@@ -6,3 +14,30 @@
   color: dodgerblue; }
 .inputdemoIcons md-input-container.md-input-invalid > md-icon.email, .inputdemoIcons md-input-container.md-input-invalid > md-icon.name {
   color: red; }
+.logo {
+  position: relative;
+  width: 100px; 
+  height: 57.74px;
+  background-color: #64C7CC;
+  margin: 28.87px auto;
+}
+
+.logo:before,
+.logo:after {
+  content: "";
+  position: absolute;
+  width: 0;
+  border-left: 50px solid transparent;
+  border-right: 50px solid transparent;
+}
+
+.logo:before {
+  bottom: 100%;
+  border-bottom: 28.87px solid #64C7CC;
+}
+
+.logo:after {
+  top: 100%;
+  width: 0;
+  border-top: 28.87px solid #64C7CC;
+}

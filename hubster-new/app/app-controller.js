@@ -41,7 +41,7 @@
     $rootScope.$on('simple-toast', function (ev, settings) {
       var toast, position;
 
-      position = 'false true false true';
+      position = 'bottom right';
  
       toast = $mdToast.show(
         $mdToast.simple()

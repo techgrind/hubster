@@ -1,6 +1,10 @@
 (function () {
   'use strict';
 
+   angular
+    .module('auth')
+    .run(AuthStore);
+
   function AuthStore($rootScope, $state) {
     $rootScope.$on('auth:password-reset-confirm-success', function () {
       $state.go('auth.passwordReset');
@@ -21,5 +25,4 @@
     });
   }
 
-  angular.module('auth').run(AuthStore);
 }());
