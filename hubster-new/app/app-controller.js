@@ -38,14 +38,14 @@
         });
     });
 
-    $rootScope.$on('simple-toast', function (ev, settings) {
+    $rootScope.$on('simple-toast', function (ev, content) {
       var toast, position;
 
       position = 'bottom right';
  
       toast = $mdToast.show(
         $mdToast.simple()
-          .content(settings.content)
+          .content(content)
           .position(position)
           .hideDelay(3000)
       );

@@ -5,7 +5,38 @@
     .module('auth')
     .run(AuthStore);
 
-  function AuthStore($rootScope, $state) {
+  function handleError(reason) {
+    var message = "Failed to connect to server";
+
+    if(reason.errors) {
+      message = "Login failed due to " + reason.errors[0];
+    }
+
+    return message;
+  }
+
+  function AuthStore($rootScope, $state, $log, UserService) {
+    $rootScope.$on('auth:login-success', function (ev, user) {
+      UserService.setCurrentUser(user);
+      $state.go('home');
+    });
+
+    $rootScope.$on('auth:login-error', function(ev, reason) {
+      $rootScope.$emit('simple-toast', handleError(reason));
+    });
+
+    $rootScope.$on('auth:oauth-registration', function(ev, user) {
+      var message = 'A registration email has been sent to ' +
+        resp.email + '. Please check your email and then log in.';
+
+      $$rootScope.$emit('simple-toast', message);
+    });
+
+    $rootScope.$on('auth:logout-success', function () {
+      UserService.setCurrentUser(null);
+      $state.go('auth.login');
+    });
+
     $rootScope.$on('auth:password-reset-confirm-success', function () {
       $state.go('auth.passwordReset');
     });
