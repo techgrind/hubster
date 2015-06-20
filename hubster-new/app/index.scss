@@ -32,7 +32,22 @@ md-sidenav {
     position: relative;
     top: 5px; // adjust for svg viewbox
   }
+  md-item {
+    width: 100%;
+  }
+  md-button {
+    width: 100%;
+  }
 }
 .user-avatar {
   border-radius: 99%;
+}
+
+a {
+  text-decoration: none;
+  color: #285052;
+}
+
+a:hover {
+  color: blue;
 }

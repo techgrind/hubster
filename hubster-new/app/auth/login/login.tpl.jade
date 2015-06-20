@@ -5,12 +5,9 @@ md-content(layout-padding="" layout="column")
   md-input-container(flex-gt-sm="40")
     label Password
     input(type="password" ng-model="login.form.password")
-md-content(layout-padding="" layout="row")
+md-content.buttons(layout-padding="" layout="row")
   md-button.md-raised.md-primary(flex="" ng-click="login.submit()") Login
   md-button(flex="" ng-click="auth.back()") Back
 
 md-content(layout-padding="" layout="column")
-  span Don't have an acccount? 
-    a(ui-sref="auth.register") Sign Up
-  span Forgot your password? 
     a(ui-sref="auth.resetPassword") Reset Password
