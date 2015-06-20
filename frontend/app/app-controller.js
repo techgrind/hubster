@@ -12,27 +12,44 @@
     .module('hubster')
     .controller('AppCtrl', AppCtrl);
 
-  function AppCtrl($log, $auth, $rootScope, $state, config) {
+  function AppCtrl($rootScope, $state, $mdSidenav, $mdDialog, $mdToast, $log, config) {
     var vm = this;
-    $log.debug('AppCtrl::begin');
-    // $log.log('Test->log');
-    // $log.debug('Test->debug');
-    // $log.info('Test->info');
-    // $log.warn('Test->warn');
-    // $log.error('Test->error');
     vm.ctrlName = 'AppCtrl';
+    $log.debug(vm.ctrlName + '::Start');
 
-    vm.config = config;
-
-    vm.signOut = function () {
-      $auth.signOut()
-        .then(function (resp) {
-          $log.debug('Successfully Logged Out' + resp);
-        })
-        .catch(function (resp) {
-          $log.debug('Unsuccessful Logged Out' + resp);
-        });
+    vm.toggleSidenav = function toggleSidenav(menuId) {
+      $log.debug(vm.ctrlName + '::toggleSidenav');
+      $mdSidenav(menuId)
+        .toggle();
     };
+
+    $rootScope.$on('alert', function () {
+      var alert, settings;
+      settings = arguments[1];
+      alert = $mdDialog.alert()
+        .title(settings.title)
+        .content(settings.content)
+        .ok(settings.ok);
+
+      $mdDialog
+        .show(alert)
+        .finally(function () {
+          alert = undefined;
+        });
+    });
+
+    $rootScope.$on('simple-toast', function (ev, content) {
+      var toast, position;
+
+      position = 'bottom right';
+ 
+      toast = $mdToast.show(
+        $mdToast.simple()
+          .content(content)
+          .position(position)
+          .hideDelay(3000)
+      );
+    });
 
     // Let's attache to state change events and have an early alert system of
     // where an error has occurred
@@ -59,6 +76,6 @@
       }
     });
 
-    $log.debug('AppCtrl::end');
+    $log.debug(vm.ctrlName + '::End');
   }
 }());

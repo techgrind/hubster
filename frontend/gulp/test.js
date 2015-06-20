@@ -42,7 +42,8 @@ module.exports = function (gulp, $, config) {
 
     // add bower javascript
     stream.queue(gulp.src($.wiredep({
-      devDependencies: true
+      devDependencies: true,
+      exclude: [/polymer/, /webcomponents/]
     }).js));
 
     // add application templates
@@ -51,6 +52,7 @@ module.exports = function (gulp, $, config) {
     // add application javascript
     stream.queue(gulp.src([
       config.buildJsFiles,
+      '!**/webcomponents.js',
       '!**/*_test.*'
     ])
       .pipe($.angularFilesort()));

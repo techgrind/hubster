@@ -1,21 +1,14 @@
-h1.header
-  |Create a Hubster Account
-div.container
-  div.row
-    div.col-md-3
-      |hi
-    div.col-md-6  
-    div.messages
-      span 
-        |{{registration.message}}
-    div.inputs
-      div.form-group
-        div.form-control-wrapper
-          input.form-control.floating-label(type="text" ng-model="registration.name" placeholder="Full Name")
-        div.form-control-wrapper
-          input.form-control.floating-label(type="text" ng-model="registration.email" placeholder="Email")
-        div.form-control-wrapper
-          input.form-control.floating-label(type="password" ng-model="registration.password" placeholder="Password")
-    div.actions
-      button.btn.btn-primary(ng-click="registration.submit()") Register Now
-      button.btn.btn-warning.btn-flat(ui-sref="auth.login") Back to Login
+md-content(layout-padding="" layout="column")
+  md-input-container(flex-gt-sm="25")
+    label Name
+    input(ng-model="registration.name")
+  md-input-container(flex-gt-sm="25")
+    label Email
+    input(ng-model="registration.email")
+  md-input-container(flex-gt-sm="25")
+    label Password
+    input(type="password" ng-model="registration.password")
+md-content(layout-padding="" layout="row")
+  md-button.md-raised.md-primary(flex="" ng-click="registration.submit()") Register
+  md-button(flex="" ng-click="auth.back()") Back
+oauth-buttons

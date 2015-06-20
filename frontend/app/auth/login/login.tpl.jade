@@ -1,22 +1,16 @@
-h1.header
-  |Log In
+md-content(layout-padding="" layout="column")
+  md-input-container(flex-gt-sm="40")
+    label Email
+    input(ng-model="login.form.email")
+  md-input-container(flex-gt-sm="40")
+    label Password
+    input(type="password" ng-model="login.form.password")
+md-content.buttons(layout-padding="" layout="row")
+  md-button.md-raised.md-primary(flex="" ng-click="login.submit()") Login
+  md-button(flex="" ng-click="auth.back()") Back
 
-md-input-container
-  //- Use floating placeholder instead of label -->
-  md-icon.email(md-svg-src="img/icons/ic_email_24px.svg")
-  input(ng-model="user.email" type="email" placeholder="Email (required)" ng-required="true")
-div.inputs
-  div.form-group
-    div.form-control-wrapper
-      input.form-control.floating-label(type="text" ng-model="login.email" placeholder="Email")
-    div.form-control-wrapper
-      input.form-control.floating-label(type="password" ng-model="login.password" placeholder="Password")
-div.actions
-  div.form-control-wrapper
-    button.btn.btn-primary(ng-click="login.submit()") Login
-div.links
-  span Don't have an account? 
-    a(ui-sref='auth.register') Sign Up
-div.links
-  span Forgot your password? 
-    a(ui-sref='auth.resetPassword') Reset Password
+oauth-buttons
+
+md-content(layout-padding="" layout="column")
+    a(ui-sref="auth.resetPassword") Reset Password
+    a(ui-sref="auth.register") Create Account

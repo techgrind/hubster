@@ -2,7 +2,7 @@
   'use strict';
 
   angular
-    .module('hubster')
+    .module('home')
     .config(config);
 
   function config($stateProvider) {

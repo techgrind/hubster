@@ -1,14 +1,16 @@
-.container.home
-  h1.header
-    |Welcome to Hubster!
-  p 
-    |Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores quis officia, beatae nisi ipsam minus! Molestias recusandae, dignissimos fuga dolor porro officia, enim consequatur accusantium laudantium deserunt quis rerum dolorum.
-
-  hello-world
-
-  button.btn.btn-primary.btn-lg(ng-click='home.signOut()' ng-show='!home.currentUser()') Sign out
-  div.new-user(ng-show='home.currentUser()')
-    a.btn.btn-primary.btn-lg(ui-sref='auth.register') Sign Up
-    br
-    a(ui-sref='auth.login') Log In
-  div(data-ui-view)
+div.home-container
+  header
+    div.logo
+    h1 Hubster
+  h2 Plan your next event with us!
+  md-button.md-raised.md-primary(flex ui-sref="auth.login") Get started
+  p - OR -
+  md-button.md-primary(flex) Learn More
+  br
+  p.sign-in Already have an account? 
+    a Sign In
+  p.terms By continuing, you accept 
+    a Terms of Use 
+    | and 
+    a Privacy Policy
+    | .

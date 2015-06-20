@@ -1,6 +1,31 @@
-.home {
+.home-container {
+  padding-top: 2em;
   text-align: center;
+}
+header {
+  margin: auto;
+  text-align: left;
+  h1 {
+    text-align: center;
+  }
+}
+
+.sign-in {
+  font-weight: 200;
+  font-size: 90%;
   a {
-    margin-top: 20px;
+    text-decoration: underline;
+  }
+}
+
+.terms {
+  position: fixed;
+  width: 100%;
+  text-align: center;
+  font-weight: 200;
+  font-size: 70%;
+  bottom: 0;
+  a {
+    text-decoration: underline;
   }
 }

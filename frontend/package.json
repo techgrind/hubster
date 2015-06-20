@@ -1,5 +1,5 @@
 {
-  "name": "hubs",
+  "name": "hubster",
   "version": "0.0.0",
   "scripts": {
     "test": "gulp test"
@@ -48,7 +48,7 @@
     "gulp-sourcemaps": "^1.5.1",
     "gulp-stylus": "^2.0.0",
     "gulp-tslint": "^2.0.0",
-    "gulp-typescript": "^2.0.0",
+    "gulp-typescript": "2.6.0",
     "gulp-uglify": "^1.0.0",
     "jshint-stylish": "^1.0.0",
     "karma": "^0.12.16",

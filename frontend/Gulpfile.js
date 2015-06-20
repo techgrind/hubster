@@ -33,7 +33,7 @@ config.appFiles = path.join(config.appDir, '**/*');
 config.appFontFiles = path.join(config.appDir, 'fonts/**/*');
 config.appImageFiles = path.join(config.appDir, 'images/**/*');
 config.appMarkupFiles = path.join(config.appDir, '**/*.{haml,html,jade}');
-config.appScriptFiles = path.join(config.appDir, '**/*.{coffee,es6,js,ts,jsx}');
+config.appScriptFiles = path.join(config.appDir, '**/*.{coffee,es6,js,ts}');
 config.appStyleFiles = path.join(config.appDir, '**/*.{css,less,scss,styl}');
 
 config.buildDirectiveTemplateFiles = path.join(config.buildDir, '**/*directive.tpl.html');
@@ -46,8 +46,8 @@ config.buildTestDirectiveTemplatesDir = path.join(config.buildTestDir, 'template
 config.buildUnitTestsDir = path.join(config.buildTestDir, config.unitTestDir);
 config.buildUnitTestFiles = path.join(config.buildUnitTestsDir, '**/*_test.js');
 
-config.e2eFiles = path.join('e2e', '**/*.{coffee,es6,js,ts,jsx}');
-config.unitTestFiles = path.join(config.unitTestDir, '**/*_test.{coffee,es6,js,ts,jsx}');
+config.e2eFiles = path.join('e2e', '**/*.{coffee,es6,js,ts}');
+config.unitTestFiles = path.join(config.unitTestDir, '**/*_test.{coffee,es6,js,ts}');
 
 config.tsProject = $.typescript.createProject({
   declarationFiles: true,

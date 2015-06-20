@@ -15,10 +15,10 @@
       'auth.registration'
     ]);
 
-  function AuthProvider($authProvider) {
+  function AuthProviderConfig($authProvider) {
     $authProvider.configure({
       apiUrl: 'http://localhost:3000'
     });
   }
-  angular.module('auth').config(AuthProvider);
+  angular.module('auth').config(AuthProviderConfig);
 }());

@@ -19,7 +19,7 @@
 
     vm.submit = function () {
       $log.debug(vm.ctrlName + '::submitting form');
-      $auth.submitLogin({email: vm.email, password: vm.password})
+      $auth.submitLogin(vm.form)
         .then(function () {
           // Success
         })
