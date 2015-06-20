@@ -8,7 +8,7 @@
   function handleError(reason) {
     var message = "Failed to connect to server";
 
-    if(reason.errors) {
+    if(reason && reason.errors) {
       message = "Login failed due to " + reason.errors[0];
     }
 
