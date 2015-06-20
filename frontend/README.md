@@ -1,11 +1,11 @@
 # hubster
 
-*Generated with [ng-poly](https://github.com/dustinspecker/generator-ng-poly/tree/v0.8.5) version 0.8.5*
+*Generated with [ng-poly](https://github.com/dustinspecker/generator-ng-poly/tree/v0.9.0) version 0.9.0*
 
 ## Setup
 1. Install [Node.js](http://nodejs.org/)
  - This will also install npm.
-1. Run `npm install -g bower gulp yo generator-ng-poly@0.8.5`
+1. Run `npm install -g bower gulp yo generator-ng-poly@0.9.0`
  - This enables Bower, Gulp, and Yeoman generators to be used from command line.
 1. Run `npm install` to install this project's dependencies
 1. Run `bower install` to install client-side dependencies
@@ -18,9 +18,3 @@
 - Run `gulp webdriverUpdate` to download Selenium server standalone and Chrome driver for e2e testing
 - Run `gulp e2eTest` to run e2e tests via Protractor
  - **A localhost must be running** - `gulp dev`
-
-## Device Instalation
-- Setup start cordova platform
-- In cordova project directory run `cordova platform add android ios`
-- Run `rm -r path/to/cordova-project/www/`
-- Copy all the files in `build/app` to `path/to/cordova-project/www`
