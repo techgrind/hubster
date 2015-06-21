@@ -3,14 +3,14 @@ div.home-container
     div.logo
     h1 Hubster
   h2 Plan your next event with us!
-  md-button.md-raised.md-primary(flex ui-sref="auth.login") Get started
+  md-button.md-raised.md-primary(flex ui-sref="auth.register") Get started now
   p - OR -
-  md-button.md-primary(flex) Learn More
+  md-button.md-primary(flex href="#") Learn more
   br
   p.sign-in Already have an account? 
-    a Sign In
-  p.terms By continuing, you accept 
-    a Terms of Use 
+    a(ui-sref="auth.login") Sign In
+  p.home-footer By continuing, you accept 
+    a(href="#") Terms of Use 
     | and 
-    a Privacy Policy
+    a(href="#") Privacy Policy
     | .

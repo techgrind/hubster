@@ -17,20 +17,35 @@ h1 {
 
 .oauth-spacer {
   padding: 2em 0;
-  text-align: center;
-  .md-button.md-default-theme.google {
+  .google .md-fab {
     background-color: #dd4b39;
   }
 
-  .md-button.md-default-theme.twitter {
+  .google .md-fab:hover, .google .md-fab.md-focused  {
+    background-color: #cd3b29 !important;
+  }
+
+  .twitter .md-fab {
     background-color: #4099ff;
   }
 
-  .md-button.md-default-theme.facebook {
+  .twitter .md-fab:hover, .twitter .md-fab.md-focused {
+    background-color: #3089ef !important;
+  }
+
+  .facebook .md-fab {
     background-color: #3b5998;
   }
 
-  .md-button.md-default-theme.github-circle {
+  .facebook .md-fab:hover, .facebook .md-fab.md-focused  {
+    background-color: #2b4988 !important;
+  }
+
+  .github-circle .md-fab {
     background-color: #000;
+  }
+
+  .github-circle .md-fab:hover, .github-circle .md-fab.md-focused {
+    background-color: #202020 !important;
   }
 }

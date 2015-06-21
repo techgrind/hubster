@@ -20,12 +20,5 @@
         controller: 'ResetPasswordCtrl',
         controllerAs: 'resetPassword'
       });
-    $stateProvider
-      .state('auth.passwordReset', {
-        url: '/password_reset',
-        templateUrl: 'auth/login/password-reset.tpl.html',
-        controller: 'PasswordResetCtrl',
-        controllerAs: 'passwordReset'
-      });
   }
 }());

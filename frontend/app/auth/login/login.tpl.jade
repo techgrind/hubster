@@ -7,10 +7,12 @@ md-content(layout-padding="" layout="column")
     input(type="password" ng-model="login.form.password")
 md-content.buttons(layout-padding="" layout="row")
   md-button.md-raised.md-primary(flex="" ng-click="login.submit()") Login
+  span &nbsp;&nbsp;&nbsp;
   md-button(flex="" ng-click="auth.back()") Back
 
 oauth-buttons
 
-md-content(layout-padding="" layout="column")
-    a(ui-sref="auth.resetPassword") Reset Password
-    a(ui-sref="auth.register") Create Account
+
+p.home-footer.reset-password
+  |Forgot your password? 
+  a(ui-sref="auth.resetPassword") Reset Password
