@@ -1,59 +1,95 @@
 (function () {
   'use strict';
 
-   angular
+  angular
     .module('auth')
     .run(AuthStore);
 
-  function handleError(reason) {
-    var message = "Failed to connect to server";
+  function AuthStore($rootScope, $state, $log, UserService) {
+    // helpers
+    function handleError(reason) {
+      var message = 'Failed to connect to server';
 
-    if(reason && reason.errors) {
-      message = "Login failed due to " + reason.errors[0];
+      if (reason && reason.errors) {
+        message = "Login failed due to " + reason.errors[0];
+      }
+
+      $rootScope.$emit('simple-toast', message);
     }
 
-    return message;
-  }
-
-  function AuthStore($rootScope, $state, $log, UserService) {
+    // login
     $rootScope.$on('auth:login-success', function (ev, user) {
       UserService.setCurrentUser(user);
       $state.go('home');
     });
 
-    $rootScope.$on('auth:login-error', function(ev, reason) {
-      $rootScope.$emit('simple-toast', handleError(reason));
+    $rootScope.$on('auth:login-error', function (ev, reason) {
+      handleError(reason);
     });
 
-    $rootScope.$on('auth:oauth-registration', function(ev, user) {
+    // token validation
+    $rootScope.$on('auth:validation-success', function () {
+      var message = 'Logged in!';
+      $rootScope.$emit('simple-toast', message);
+    });
+
+    $rootScope.$on('auth:validation-error', function () {
+      var message = 'Failed to log in.';
+      $rootScope.$emit('simple-toast', message);
+    });
+
+    $rootScope.$on('auth:invalid', function () {
+      var message = 'Invalid login attempt.';
+      $rootScope.$emit('simple-toast', message);
+    });
+
+    // logout
+    $rootScope.$on('auth:logout-success', function () {
+      UserService.setCurrentUser(null);
+      $state.go('auth.login');
+    });
+
+    $rootScope.$on('auth:logout-error', function (ev, reason) {
+      handleError(reason);
+    });
+
+    // email registration
+    $rootScope.$on('auth:registration-email-success', function (ev, user) {
       var message = 'A registration email has been sent to ' +
-        resp.email + '. Please check your email and then log in.';
+        user.email + '. Please check your email and then log in.';
 
       $rootScope.$emit('simple-toast', message);
     });
 
-    $rootScope.$on('auth:logout-success', function () {
-      UserService.setCurrentUser(null);
-      $state.go('auth.login');
+    $rootScope.$on('auth:registration-email-error', function (ev, reason) {
+      handleError(reason);
+    });
+
+    $rootScope.$on('auth:email-confirmation-success', function (ev, user) {
+      var message = 'Welcome, ' + user.email;
+      $rootScope.$emit('simple-toast', message);
+    });
+
+    $rootScope.$on('auth:email-confirmation-error', function (ev, reason) {
+      handleError(reason);
+    });
+
+    // password reset
+    $rootScope.$on('auth:password-reset-request-success', function (ev, user) {
+      var message = 'Password reset instructions sent to ' + user.email;
+      $rootScope.$emit('simple-toast', message);
+    });
+
+    $rootScope.$on('auth:password-reset-request-error', function (ev, reason) {
+      handleError(reason);
     });
 
     $rootScope.$on('auth:password-reset-confirm-success', function () {
       $state.go('auth.passwordReset');
     });
 
-    $rootScope.$on('auth:validation-success', function () {
-      $rootScope.$emit('simple-toast', { content: 'Logged in!' });
-    });
-
-    $rootScope.$on('auth:password-reset-request-success', function (ev, data) {
-      var message = 'Password reset instructions sent';
-      $rootScope.$emit('simple-toast', { content: message});
-    });
-
-    $rootScope.$on('auth:password-reset-request-error', function (ev, resp) {
-      var message = 'Password reset request failed: ' + resp.errors.join(', ');
-      $rootScope.$emit('alert', {title: 'Password Reset Request', content: message, ok: 'Okay'});
+    $rootScope.$on('auth:password-reset-confirm-error', function (ev, reason) {
+      handleError(reason);
     });
   }
-
 }());

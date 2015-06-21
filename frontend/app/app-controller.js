@@ -39,11 +39,8 @@
     });
 
     $rootScope.$on('simple-toast', function (ev, content) {
-      var toast, position;
-
-      position = 'bottom right';
- 
-      toast = $mdToast.show(
+      var position = 'bottom right';
+      $mdToast.show(
         $mdToast.simple()
           .content(content)
           .position(position)
