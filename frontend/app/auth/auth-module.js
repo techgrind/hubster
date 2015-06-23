@@ -17,7 +17,7 @@
 
   function AuthProviderConfig($authProvider) {
     $authProvider.configure({
-      apiUrl: 'http://localhost:3000'
+      apiUrl: 'https://hubster-dev.herokuapp.com'
     });
   }
   angular.module('auth').config(AuthProviderConfig);
