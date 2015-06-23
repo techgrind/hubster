@@ -17,11 +17,7 @@
 
   function AuthProviderConfig($authProvider) {
     $authProvider.configure({
-<<<<<<< HEAD
       apiUrl: 'https://hubster-dev.herokuapp.com/'
-=======
-      apiUrl: 'https://hubster-dev.herokuapp.com'
->>>>>>> refs/remotes/origin/master
     });
   }
   angular.module('auth').config(AuthProviderConfig);
