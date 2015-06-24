@@ -20,6 +20,7 @@
     // login
     $rootScope.$on('auth:login-success', function (ev, user) {
       UserService.setCurrentUser(user);
+      $rootScope.$emit('simple-toast', "You logged in successfully");
       $state.go('home');
     });
 
