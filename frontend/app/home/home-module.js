@@ -8,7 +8,6 @@
    */
   angular
     .module('home', [
-      'ui.router',
-      'home.learnmore'
+      'ui.router'
     ]);
 }());

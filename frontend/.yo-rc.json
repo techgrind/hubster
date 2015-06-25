@@ -5,7 +5,7 @@
     "e2eTestFramework": "jasmine",
     "markup": "jade",
     "ngRoute": false,
-    "structure": "module-only",
+    "structure": "module-type",
     "style": "scss",
     "testFramework": "jasmine",
     "testScript": "js",

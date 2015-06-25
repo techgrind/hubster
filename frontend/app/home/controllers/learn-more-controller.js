@@ -9,11 +9,11 @@
    *
    */
   angular
-    .module('home.learnmore')
-    .controller('LearnmoreCtrl', LearnmoreCtrl);
+    .module('home')
+    .controller('LearnMoreCtrl', LearnMoreCtrl);
 
-  function LearnmoreCtrl() {
+  function LearnMoreCtrl() {
     var vm = this;
-    vm.ctrlName = 'LearnmoreCtrl';
+    vm.ctrlName = 'LearnMoreCtrl';
   }
 }());
