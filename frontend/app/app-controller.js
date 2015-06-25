@@ -12,15 +12,21 @@
     .module('hubster')
     .controller('AppCtrl', AppCtrl);
 
-  function AppCtrl($rootScope, $state, $mdSidenav, $mdDialog, $mdToast, $log, config) {
+  function AppCtrl($rootScope, $window, $state, $mdSidenav, $mdDialog, $mdToast, $log, config) {
     var vm = this;
     vm.ctrlName = 'AppCtrl';
+    $log.debug('App');
     $log.debug(vm.ctrlName + '::Start');
 
     vm.toggleSidenav = function toggleSidenav(menuId) {
       $log.debug(vm.ctrlName + '::toggleSidenav');
       $mdSidenav(menuId)
         .toggle();
+    };
+
+    vm.back = function () {
+      $log.debug('back');
+      $window.history.back();
     };
 
     $rootScope.$on('alert', function () {

@@ -1,15 +1,16 @@
+
 md-content(layout-padding="" layout="column")
-  md-input-container(flex-gt-sm="25")
+  md-input-container
     label Name
     input(ng-model="registration.name")
-  md-input-container(flex-gt-sm="25")
+  md-input-container
     label Email
     input(ng-model="registration.email")
-  md-input-container(flex-gt-sm="25")
+  md-input-container
     label Password
     input(type="password" ng-model="registration.password")
 md-content(layout-padding="" layout="row")
   md-button.md-raised.md-primary(flex="" ng-click="registration.submit()") Register
   span &nbsp;&nbsp;&nbsp;
-  md-button(flex="" ng-click="auth.back()") Back
+  md-button(flex="" ng-click="app.back()") Back
 oauth-buttons

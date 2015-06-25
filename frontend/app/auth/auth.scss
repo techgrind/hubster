@@ -49,3 +49,8 @@ h1 {
     background-color: #202020 !important;
   }
 }
+
+md-toolbar:not(.md-hue-1),
+.md-fab {
+  fill: #fff;
+}

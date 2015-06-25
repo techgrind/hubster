@@ -17,10 +17,6 @@
     vm.ctrlName = 'AuthCtrl';
     $log.debug(vm.ctrlName + '::begin');
 
-    vm.back = function () {
-      $window.history.back();
-    };
-
     $log.debug('AuthCtrl::end');
   }
 }());
