@@ -14,6 +14,7 @@
       'log.ex.uo',
       'angular-storage',
       'ngMdIcons',
+      'ngLodash',
       'home',
       'auth'
     ]);

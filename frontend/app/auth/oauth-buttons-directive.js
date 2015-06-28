@@ -28,9 +28,17 @@
       templateUrl: 'auth/oauth-buttons-directive.tpl.html',
       replace: false,
       controllerAs: 'oauthButtons',
-      controller: function () {
+      controller: function ($auth, $log) {
         var vm = this;
         vm.name = 'oauthButtons';
+        $log.debug('oauthButtons::begin');
+
+        vm.authenticate = function (system) {
+          $log.debug('oauthButtons: User clicked ' + system);
+          $auth.authenticate(system);
+        };
+         
+        $log.debug('oauthButtons::end');
       },
       link: function (scope, element, attrs) {
         /*jshint unused:false */

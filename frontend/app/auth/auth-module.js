@@ -17,7 +17,7 @@
 
   function AuthProviderConfig($authProvider) {
     $authProvider.configure({
-      apiUrl: 'https://hubster-dev.herokuapp.com/'
+      apiUrl: 'http://hubster-rails.dev'
     });
   }
   angular.module('auth').config(AuthProviderConfig);
