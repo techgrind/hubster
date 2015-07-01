@@ -1,13 +1,13 @@
 md-content.oauth-spacer(layout="row" layout-align="space-around" )
-  a.google(href="#") 
-    md-button.md-fab
+  a.google(href="#")
+    md-button.md-fab(ng-click="oauthButtons.authenticate('google')")
       ng-md-icon(icon="google-plus")
-  a.twitter(href="#") 
-    md-button.md-fab
+  a.twitter
+    md-button.md-fab(ng-click="oauthButtons.authenticate('twitter')")
       ng-md-icon(icon="twitter")
   a.facebook
     md-button.md-fab(ng-click="oauthButtons.authenticate('facebook')")
       ng-md-icon(icon="facebook")
   a.github-circle(href="#")
-    md-button.md-fab
+    md-button.md-fab(ng-click="oauthButtons.authenticate('github')")
       ng-md-icon(icon="github-circle")
