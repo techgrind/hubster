@@ -28,14 +28,20 @@
       templateUrl: 'auth/oauth-buttons-directive.tpl.html',
       replace: false,
       controllerAs: 'oauthButtons',
-      controller: function ($auth, $log) {
+      controller: function ($auth, $log, Auth) {
         var vm = this;
+        var auth = ("cordova" in window) ? Auth : $auth;
+
         vm.name = 'oauthButtons';
         $log.debug('oauthButtons::begin');
 
         vm.authenticate = function (system) {
           $log.debug('oauthButtons: User clicked ' + system);
-          $auth.authenticate(system);
+          auth.authenticate(system).then(function(){
+            if (typeof $rootScope.modal !== "undefined"){
+              $rootScope.modal.hide();
+            }
+          });
         };
          
         $log.debug('oauthButtons::end');

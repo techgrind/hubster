@@ -15,8 +15,10 @@
       'angular-storage',
       'ngMdIcons',
       'ngLodash',
+      'ngCordova',
       'home',
-      'auth'
+      'auth',
+      'common'
     ]);
 
   function ThemeProvider($mdThemingProvider) {

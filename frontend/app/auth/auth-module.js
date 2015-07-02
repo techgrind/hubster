@@ -12,18 +12,14 @@
       'rails',
       'ng-token-auth',
       'auth.login',
-      'auth.registration'
+      'auth.registration',
+      'common'
     ]);
 
-  function AuthProviderConfig($authProvider) {
+  function AuthProviderConfig($authProvider, config) {
     $authProvider.configure({
-      apiUrl: 'http://hubster-rails.dev',
-      authProviderPaths: {
-        github:   '/auth/github',
-        facebook: '/auth/facebook',
-        google:   '/auth/google_oauth2',
-        twitter:  '/auth/twitter'
-      }
+      apiUrl: config.authApiUrl,
+      authProviderPaths: config.authAuthProviderPaths
     });
   }
   angular.module('auth').config(AuthProviderConfig);
